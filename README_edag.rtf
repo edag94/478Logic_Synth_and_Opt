@@ -1,0 +1,17 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1504\cocoasubrtf810
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\margl1440\margr1440\vieww10800\viewh8400\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 Report:\
+The first function in my project is the APPLY function. The apply function is used to perform one of the three binary operations, XOR, OR, and AND, to BDDs, however if more operations were defined the function would still be able to handle them, as the process is the same. Apply is a recursive function, which also uses dynamic programming to store nodes already computed nodes, to eliminate redundant tasks, and uses another table to compute all the unique nodes to construct the BDD.\
+The next 2 functions return the NEGATIVE COFACTOR and the POSITIVE COFACTOR of the input node. They are also used as helper functions in APPLY.\
+The 4th function is the BOOLEAN DIFFERENCE function. This is, as defined in the project spec, the negative cofactor of the input node XORed with the positive cofactor of the input node.\
+The last function is SORT_BY_INFLUENCE. This is defined as the probability of the the boolean difference of the input node with respect to a certain variable. The function is implemented by finding the set of variables contained in the Boolean function and then sorting by influence in descending order, and then displaying them. \
+The project passes both provided test cases, and have passed my own test cases, though further testing could be carried out, to find possible edge case bugs.\
+\
+Discussion:\
+Yes, we can reduce the size of BDDs by reordering the variables according to their influence value. This is because influence describes how dependent the function is on the that particular variable. By placing the variables with the highest influence at the top of the tree, we reduce the number of branch nodes. If, for example, we placed a node with an influence of 1 last, we are bound to see that particular variable at the bottom of every branch, as the function is entirely dependent on it. By placing the variable at the top, we only see the node with that particular variable once.\
+}
